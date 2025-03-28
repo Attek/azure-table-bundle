@@ -1,0 +1,37 @@
+{
+  "name": "lsyh/table-service-bundle",
+  "description": "Azure TableService bundle",
+  "type": "symfony-bundle",
+  "keywords": ["azure table", "azure"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Attila Pest",
+      "email": "attila.pest@lhsystems.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Lsyh\\TableServiceBundle\\": "src/"
+    }
+  },
+  "require": {
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "symfony/http-client": "7.2.*",
+    "symfony/monolog-bundle": "^3.10",
+    "symfony/property-access": "7.2.*",
+    "symfony/serializer": "7.2.*",
+    "symfony/yaml": "7.2.*"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.70",
+    "phpunit/phpunit": "^12.0",
+    "symfony/phpunit-bridge": "^7.2"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.0.x-dev"
+    }
+  }
+}

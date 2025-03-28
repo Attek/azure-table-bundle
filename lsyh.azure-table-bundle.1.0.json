@@ -1,0 +1,29 @@
+{
+  "manifests": {
+    "lsyh/azure-table-bundle": {
+      "manifest": {
+        "bundles": {
+          "Lsyh\\TableServiceBundle\\TableServiceBundle": [
+            "all"
+          ]
+        },
+        "copy-from-recipe": {
+          "config/": "%CONFIG_DIR%"
+        },
+        "env": {
+          "AZURE_URL": "",
+          "AZURE_SAS_TOKEN": "",
+          "AZURE_TABLE_NAME": ""
+        },
+        "dotenv": {
+          "dev": {
+            "AZURE_URL": "http://azurite:10002/devstoreaccount1",
+            "AZURE_SAS_TOKEN": "sv=2023-01-03&ss=btqf&srt=sco&st=2025-02-28T13%3A11%3A31Z&se=2026-01-01T13%3A11%3A00Z&sp=rwdxftlacup&sig=snupTkoeYIMZcAyQlxuHZe%2B6HNEUvzvBXOOyjLlln%2Fc%3D",
+            "AZURE_TABLE_NAME": "mytable"
+          }
+        }
+      },
+      "ref": "aa3007510ca8dedd6cd04ed1e778e75684a35100"
+    }
+  }
+}
