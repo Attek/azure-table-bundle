@@ -1,6 +1,6 @@
 {
   "recipes": {
-    "lsyh/azure-table-bundle": [
+    "lsyh/azure-table-service-bundle": [
       "1.0"
     ]
   },

@@ -1,6 +1,6 @@
 {
   "manifests": {
-    "lsyh/azure-table-bundle": {
+    "lsyh/azure-table-service-bundle": {
       "manifest": {
         "bundles": {
           "Lsyh\\TableServiceBundle\\TableServiceBundle": [
@@ -23,7 +23,7 @@
           }
         }
       },
-      "ref": "aa3007510ca8dedd6cd04ed1e778e75684a35100"
+      "ref": "c0b9a89816641c5029ea36ed082bc48b427cb85f"
     }
   }
 }

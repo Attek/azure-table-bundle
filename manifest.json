@@ -3,9 +3,7 @@
     "Lsyh\\TableServiceBundle\\TableServiceBundle": ["all"]
   },
   "copy-from-recipe": {
-    "config/": "%CONFIG_DIR%/",
-    "public/": "%PUBLIC_DIR%/",
-    "src/": "%SRC_DIR%/"
+    "config/": "%CONFIG_DIR%/"
   },
   "composer-scripts": {
     "cache:clear": "symfony-cmd",
