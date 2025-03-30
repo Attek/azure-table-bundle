@@ -1,5 +1,5 @@
 {
-  "name": "lsyh/table-service-bundle",
+  "name": "lsyh/azure-table-service-bundle",
   "description": "Azure TableService bundle",
   "type": "symfony-bundle",
   "keywords": ["azure table", "azure"],
