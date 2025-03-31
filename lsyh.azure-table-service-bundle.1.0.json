@@ -8,7 +8,7 @@
           ]
         },
         "copy-from-recipe": {
-          "config/": "%CONFIG_DIR%"
+          "config/packages/": "%CONFIG_DIR%/packages"
         },
         "env": {
           "AZURE_URL": "",

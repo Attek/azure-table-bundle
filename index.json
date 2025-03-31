@@ -1,7 +1,7 @@
 {
   "recipes": {
     "lsyh/azure-table-service-bundle": [
-      "1.1"
+      "1.0"
     ]
   },
   "branch": "main",
