@@ -23,6 +23,16 @@
           }
         }
       },
+      "files": {
+        "config/packages/acme_private.yaml": {
+          "contents": [
+            "acme_private:",
+            "    encode: true",
+            ""
+          ],
+          "executable": false
+        }
+      },
       "ref": "d73ccccd3d6ff0a3d60c2fb539dff2a846cb21b7"
     }
   }
