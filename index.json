@@ -8,7 +8,7 @@
   "is_contrib": true,
   "_links": {
     "repository": "github.com/Attek/azure-table-bundle.git",
-    "origin_template": "{package}:{version}@github.com/github.com/Attek/azure-table-bundle.git:main",
-    "recipe_template": "https://api.github.com/repos/github.com/Attek/azure-table-bundle.git/contents/{package_dotted}.{version}.json"
+    "origin_template": "{package}:{version}@github.com/Attek/azure-table-bundle.git:main",
+    "recipe_template": "https://api.github.com/repos/Attek/azure-table-bundle.git/contents/{package_dotted}.{version}.json"
   }
 }
