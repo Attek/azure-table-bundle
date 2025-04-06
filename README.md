@@ -5,7 +5,7 @@
 ### Step 1: Download the Bundle
 Open a command console, enter your project directory and execute:
 ```console
-composer require lsyh/table-service-bundle:@dev
+composer require lsyh/azure-table-service-bundle:@dev
 ```
 
 ### Step 2: Enable the Bundle
@@ -20,6 +20,14 @@ return [
     // ...
     Lsyh\TableServiceBundle\TableServiceBundle::class => ['all' => true],
 ];
+```
+
+### Step 3: Create table_service.yaml in config/packages folder.
+```yaml
+table_service:
+  azure_url: '%env(AZURE_URL)%'
+  azure_table_name: '%env(AZURE_TABLE_NAME)%'
+  azure_sas_token: '%env(AZURE_SAS_TOKEN)%'
 ```
 
 ## Usage:
