@@ -1,4 +1,0 @@
-table_service:
-  azure_url: '%env(AZURE_URL)%'
-  azure_table_name: '%env(AZURE_TABLE_NAME)%'
-  azure_sas_token: '%env(AZURE_SAS_TOKEN)%'
