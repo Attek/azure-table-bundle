@@ -2,6 +2,7 @@
 
 namespace Lsyh\TableServiceBundle;
 
+use Lsyh\TableServiceBundle\Azure\TableService;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -27,6 +28,12 @@ class TableServiceBundle extends AbstractBundle
         $container->parameters()->set('azure_table_service.azure_sas_token', $config['azure_sas_token']);
         $container->parameters()->set('azure_table_service.azure_table_name', $config['azure_table_name']);
 
+        $container->services()
+          ->defaults()
+          ->autowire()
+          ->autoconfigure()
+          ->private()
+          ->set(TableService::class);
     }
 
     public function getPath(): string

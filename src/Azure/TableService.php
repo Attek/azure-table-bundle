@@ -102,13 +102,39 @@ class TableService implements TableServiceInterface
         return $azureApiResponse;
     }
 
-    public function getEntity(string $tableName, string $partitionKey, string $rowKey, ...$filter): AzureApiResponse
+    public function getEntity(string $tableName, string $partitionKey, string $rowKey, ...$select): AzureApiResponse
     {
         $url = sprintf('%s/%s(PartitionKey=\'%s\',RowKey=\'%s\')?%s',
             $this->azureUrl, $tableName, $partitionKey, $rowKey, $this->azureSASToken);
 
+        if ($select) {
+            $url .= '&$select=' . implode(',', $select);
+        }
+
+        $azureApiResponse = $this->sendRequest(Request::METHOD_GET, $url, $this->getOptions(), $tableName);
+
+        if (empty($azureApiResponse->getErrorCode())) {
+            return $azureApiResponse->setSuccess(true);
+        }
+
+        return $azureApiResponse;
+    }
+
+    /**
+     * Get entity by filter
+     * @param string $tableName
+     * @param string $operator and, not, or default is 'and'
+     * @param string ...$filter propertyName operator value
+     *  operators: eq, ne, gt, ge, lt, le
+     * @return AzureApiResponse
+     */
+    public function getEntityByFilter(string $tableName, string $operator = 'and', string ...$filter): AzureApiResponse
+    {
+        $url = sprintf('%s/%s()?%s',
+          $this->azureUrl, $tableName, $this->azureSASToken);
+
         if ($filter) {
-            $url .= '&$select=' . implode(',', $filter);
+            $url .= '&$filter=' . urlencode(implode($operator, $filter));
         }
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_GET, $url, $this->getOptions(), $tableName);

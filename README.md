@@ -97,7 +97,12 @@ class AzureTestCommand extends Command
    $azureApiResponse->getEntity();
 ```
 
-### Get Entity, filter response:
+### Get Entity, select properties response:
 ```php
    $azureApiResponse = $this->tableService->getEntity('myTable', 'partkey1', 'rowkey1', 'name', 'age');
+```
+
+### Filter Entity by timestamp
+```php
+$azureApiResponse = $this->tableService->getEntityByFilter('myTable', 'and', 'Timestamp le datetime\'' . $date . '\'');
 ```
