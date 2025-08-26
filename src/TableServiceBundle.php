@@ -24,9 +24,9 @@ class TableServiceBundle extends AbstractBundle
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        $container->parameters()->set('azure_table_service.azure_url', $config['azure_url']);
-        $container->parameters()->set('azure_table_service.azure_sas_token', $config['azure_sas_token']);
-        $container->parameters()->set('azure_table_service.azure_table_name', $config['azure_table_name']);
+        $container->parameters()->set('azure_table_service.azure_url', $config['azure_url'] ?? '');
+        $container->parameters()->set('azure_table_service.azure_sas_token', $config['azure_sas_token'] ?? '');
+        $container->parameters()->set('azure_table_service.azure_table_name', $config['azure_table_name'] ?? '');
 
         $container->services()
           ->defaults()
