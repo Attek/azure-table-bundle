@@ -12,7 +12,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "Lsyh\\TableServiceBundle\\": "src/"
+      "Lsyh\\TableServiceBundle\\": "src/",
+      "Lsyh\\TableServiceBundle\\Tests\\": "tests/"
     }
   },
   "require": {
