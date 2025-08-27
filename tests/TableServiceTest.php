@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Tests;
+namespace Lsyh\TableServiceBundle\Tests;
 
-use App\Service\Azure\Response\ODataError;
-use App\Service\Azure\Response\ODataErrorMessage;
-use App\Service\Azure\Response\ODataErrorResponse;
-use App\Service\Azure\Response\TableItem;
-use App\Service\Azure\Response\TablesResponse;
-use App\Service\Azure\TableService;
+use Lsyh\TableServiceBundle\Azure\Response\ODataError;
+use Lsyh\TableServiceBundle\Azure\Response\ODataErrorMessage;
+use Lsyh\TableServiceBundle\Azure\Response\ODataErrorResponse;
+use Lsyh\TableServiceBundle\Azure\Response\TableItem;
+use Lsyh\TableServiceBundle\Azure\Response\TablesResponse;
+use Lsyh\TableServiceBundle\Azure\TableService;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-class TableServiceTest extends KernelTestCase
+class TableServiceTest extends TestCase
 {
     private HttpClientInterface $httpClient;
     private LoggerInterface $logger;
@@ -34,8 +34,8 @@ class TableServiceTest extends KernelTestCase
 
         $this->parameterBag->method('get')
           ->willReturnMap([
-            ['azure_url', 'http://azurite:10002'],
-            ['azure_sas_token', 'Loremipsumdolorsitamet'],
+            ['azure_table_service.azure_url', 'http://azurite:10002'],
+            ['azure_table_service.azure_sas_token', 'Loremipsumdolorsitamet'],
           ]);
 
         $this->tableService = new TableService(
