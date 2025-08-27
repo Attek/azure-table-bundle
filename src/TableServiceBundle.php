@@ -3,6 +3,7 @@
 namespace Lsyh\TableServiceBundle;
 
 use Lsyh\TableServiceBundle\Azure\TableService;
+use Lsyh\TableServiceBundle\Azure\TableServiceInterface;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -33,7 +34,7 @@ class TableServiceBundle extends AbstractBundle
           ->autowire()
           ->autoconfigure()
           ->private()
-          ->set(TableService::class);
+          ->set(TableServiceInterface::class, TableService::class);
     }
 
     public function getPath(): string
