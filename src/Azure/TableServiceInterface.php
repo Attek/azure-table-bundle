@@ -16,6 +16,8 @@ interface TableServiceInterface
 
     public function getEntity(string $tableName, string $partitionKey, string $rowKey): AzureApiResponse;
 
+    public function getEntityByFilter(string $tableName, string $operator = 'and', string ...$filter): AzureApiResponse;
+
     public function insertEntity(string $tableName, Entity $entity): AzureApiResponse;
 
     public function updateEntity(string $tableName, Entity $entity): AzureApiResponse;
