@@ -10,24 +10,38 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 class AzureEntityDenormalizer implements DenormalizerInterface
 {
-    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): AzureEntity
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): AzureEntity|array
     {
         if (!is_array($data)) {
             throw new UnexpectedValueException('Expected data to be an array.');
         }
 
+        if (array_key_exists('value', $data)) {
+            $entities = [];
+            foreach ($data['value'] as $item) {
+                $entities[] = $this->processData($item);
+            }
+
+            return $entities;
+        } else {
+            return $this->processData($data);
+        }
+    }
+
+    private function processData(array $data): AzureEntity
+    {
         foreach ($data as $name => $value) {
             if (str_ends_with($name, '@odata.type')) {
                 unset($data[$name]);
                 $propertyName = str_replace('@odata.type', '', $name);
 
                 $data[$propertyName] = match ($value) {
-                    'Edm.Int32' => (int)$data[$propertyName],
-                    'Edm.Boolean' => (bool)$data[$propertyName],
-                    'Edm.Double' => (float)$data[$propertyName],
+                    'Edm.Int32' => (int) $data[$propertyName],
+                    'Edm.Boolean' => (bool) $data[$propertyName],
+                    'Edm.Double' => (float) $data[$propertyName],
                     'Edm.Binary' => base64_decode($data[$propertyName]),
                     'Edm.DateTime' => new \DateTime($data[$propertyName]),
-                    default => (string)$data[$propertyName],
+                    default => (string) $data[$propertyName],
                 };
             }
         }
@@ -38,7 +52,6 @@ class AzureEntityDenormalizer implements DenormalizerInterface
         }
 
         return $azureEntity;
-
     }
 
     public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
@@ -49,7 +62,7 @@ class AzureEntityDenormalizer implements DenormalizerInterface
     public function getSupportedTypes(?string $format): array
     {
         return [
-            AzureEntity::class => true,
+          AzureEntity::class => true,
         ];
     }
 }

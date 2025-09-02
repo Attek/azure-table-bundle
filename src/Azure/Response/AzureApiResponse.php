@@ -78,7 +78,7 @@ class AzureApiResponse
         return $this;
     }
 
-    public function getEntity(): ?AzureEntity
+    public function getEntity(): AzureEntity|array|null
     {
         if (empty($this->body)) {
             return null;
