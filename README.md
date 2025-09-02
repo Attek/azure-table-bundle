@@ -1,16 +1,25 @@
 # Azure Table Service for Symfony
 
-## Installation:
-
-### Step 1: Download the Bundle
+## Installation with symfony recipe:
+* Add the following lines to composer.json
+```consolse
+    "extra": {
+        "symfony": {
+            "endpoint": ["https://api.github.com/repos/Attek/azure-table-bundle-recipe/contents/index.json", "flex://defaults"]
+        }
+    }
+```
+ 
+* Download the Bundle
 Open a command console, enter your project directory and execute:
 ```console
-composer require lsyh/azure-table-service-bundle:@dev
+composer require lsyh/azure-table-service-bundle
 ```
 
-### Step 2: Enable the Bundle
+## Installation manually:
+* Enable the Bundle
 
-Then, enable the bundle by adding it to the list of registered bundles
+Enable the bundle by adding it to the list of registered bundles
 in the `config/bundles.php` file of your project:
 
 ```php
@@ -22,12 +31,18 @@ return [
 ];
 ```
 
-### Step 3: Create table_service.yaml in config/packages folder.
+* Create table_service.yaml in config/packages folder.
 ```yaml
 table_service:
   azure_url: '%env(AZURE_URL)%'
   azure_table_name: '%env(AZURE_TABLE_NAME)%'
   azure_sas_token: '%env(AZURE_SAS_TOKEN)%'
+```
+
+* Download the Bundle
+  Open a command console, enter your project directory and execute:
+```console
+composer require lsyh/azure-table-service-bundle
 ```
 
 ## Usage:
@@ -37,7 +52,7 @@ table_service:
 class AzureTestCommand extends Command
 {
     public function __construct(
-        private TableService $tableService,
+        private TableServiceInterface $tableService,
     ) {
         parent::__construct();
     }
@@ -61,7 +76,7 @@ class AzureTestCommand extends Command
 ### Insert Entity:
 ```php
     $entity = (new Entity())
-                    ->setPartitionKey('partkey1')
+              ->setPartitionKey('partkey1')
               ->setRowKey('rowkey1')
               ->addProperty('name', 'John Doe')
               ->addProperty('age', 30)
@@ -74,7 +89,7 @@ class AzureTestCommand extends Command
 ### Update Entity:
 ```php
     $entity = (new Entity())
-                    ->setPartitionKey('partkey1')
+              ->setPartitionKey('partkey1')
               ->setRowKey('rowkey1')
               ->addProperty('name', 'John Doe')
               ->addProperty('age', 30)
