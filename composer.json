@@ -1,8 +1,8 @@
 {
   "name": "lsyh/azure-table-service-bundle",
-  "description": "Azure TableService bundle",
+  "description": "Azure TableService symfony bundle",
   "type": "symfony-bundle",
-  "keywords": ["azure table", "azure"],
+  "keywords": ["azure table", "azure", "symfony", "symfony bundle"],
   "license": "MIT",
   "authors": [
     {
