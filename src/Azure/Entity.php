@@ -91,7 +91,7 @@ class Entity
             return EdmType::DOUBLE;
         } elseif (is_bool($value)) {
             return EdmType::BOOLEAN;
-        } elseif ($value instanceof \DateTime) {
+        } elseif ($value instanceof \DateTimeInterface) {
             return EdmType::DATETIME;
         } else {
             return EdmType::STRING;
