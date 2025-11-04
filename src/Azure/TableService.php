@@ -95,7 +95,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_DELETE, $url, $this->getOptions(), $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
@@ -113,7 +113,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_GET, $url, $this->getOptions(), $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
@@ -139,7 +139,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_GET, $url, $this->getOptions(), $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
@@ -155,7 +155,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_POST, $url, $options, $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
@@ -172,7 +172,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_PUT, $url, $options, $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
@@ -189,7 +189,7 @@ class TableService implements TableServiceInterface
 
         $azureApiResponse = $this->sendRequest(Request::METHOD_DELETE, $url, $options, $tableName);
 
-        if (empty($azureApiResponse->getErrorCode())) {
+        if ($azureApiResponse->getErrorCode() === '') {
             return $azureApiResponse->setSuccess(true);
         }
 
