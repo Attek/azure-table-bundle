@@ -15,7 +15,7 @@ class AzureApiResponse
     private string $errorCode = '';
     private string $errorMessage = '';
     private bool $success = false;
-    private int $responseCode;
+    private int $responseCode = -1;
     private string $body = '';
 
     public function getErrorCode(): string
